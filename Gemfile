@@ -64,16 +64,16 @@ group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false
   gem "byebug"
-  gem "capistrano", "~> 3.1.0"
+  gem 'capistrano', '~> 3.4'
   # rails specific capistrano funcitons
-  gem "capistrano-rails", "~> 1.1.0"
+  gem "capistrano-rails"
   # integrate bundler with capistrano
   gem "capistrano-bundler"
   # if you are using RBENV
   gem "capistrano-rbenv", "~> 2.0"
   # Use Unicorn as our app server
   gem "capistrano-sidekiq"
-  gem "capistrano-rvm"
+  # gem "capistrano-rvm"
   gem "unicorn"
   gem "coffeelint"
   gem "dotenv-rails"
