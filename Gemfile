@@ -40,11 +40,13 @@ gem "rack-mini-profiler", require: false
 gem "responders"
 gem "rollbar"
 gem "seedbank"
+gem "sidekiq"
 gem "stackprof"
 
 group :staging, :production do
   gem "newrelic_rpm"
   gem "rails_stdout_logging"
+  gem "unicorn"
 end
 
 group :test do
@@ -64,17 +66,6 @@ group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false
   gem "byebug"
-  gem 'capistrano', '~> 3.4'
-  # rails specific capistrano funcitons
-  gem "capistrano-rails"
-  # integrate bundler with capistrano
-  gem "capistrano-bundler"
-  # if you are using RBENV
-  gem "capistrano-rbenv", "~> 2.0"
-  # Use Unicorn as our app server
-  gem "capistrano-sidekiq"
-  # gem "capistrano-rvm"
-  gem "unicorn"
   gem "coffeelint"
   gem "dotenv-rails"
   gem "factory_girl_rails"
@@ -92,6 +83,16 @@ end
 
 group :development do
   gem "bullet"
+  gem "capistrano", "~> 3.4"
+  # rails specific capistrano funcitons
+  gem "capistrano-rails"
+  # integrate bundler with capistrano
+  gem "capistrano-bundler"
+  # if you are using RBENV
+  gem "capistrano-rbenv"
+  # Use Unicorn as our app server
+  gem "capistrano-sidekiq", "0.5.3"
+  # gem "capistrano-rvm"
   gem "foreman", require: false
   gem "letter_opener"
   gem "quiet_assets"
