@@ -9,6 +9,11 @@
       React.DOM.h2
         className: 'title'
         'Records'
+      React.DOM.div
+        className: 'row'
+        React.createElement AmountBox, type: 'success', amount: @credits(), text: 'Credit'
+        React.createElement AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
+        React.createElement AmountBox, type: 'info', amount: @balance(), text: 'Balance'
       React.createElement RecordForm, handleNewRecord: @addRecord
       React.DOM.table
         className: 'table table-bordered'
@@ -24,3 +29,15 @@
     records = @state.records.slice()
     records.push record
     @setState records: records
+  credits: ->
+    credits = @state.records.filter (val) -> val.amount >= 0
+    credits.reduce ((prev, curr) ->
+      prev + parseFloat(curr.amount)
+    ), 0
+  debits: ->
+    debits = @state.records.filter (val) -> val.amount < 0
+    debits.reduce ((prev, curr) ->
+      prev + parseFloat(curr.amount)
+    ), 0
+  balance: ->
+    @debits() + @credits()
