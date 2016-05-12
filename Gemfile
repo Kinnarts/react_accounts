@@ -12,9 +12,11 @@ gem "foundation-icons-sass-rails"
 gem "foundation-rails"
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0.0"
+gem "bootstrap-sass"
 gem "skim"
 gem "therubyracer", platforms: :ruby
 gem "uglifier", ">= 2.7.2"
+gem "react-rails"
 
 # views
 gem "active_link_to"

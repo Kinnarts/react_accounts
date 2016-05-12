@@ -7,6 +7,10 @@
 #= require jquery
 #= require jquery_ujs
 #= require foundation
+#= require bootstrap-sprockets
+#= require react
+#= require react_ujs
+#= require components
 #= require current_user
 #= require skim
 #= require_tree ../templates
