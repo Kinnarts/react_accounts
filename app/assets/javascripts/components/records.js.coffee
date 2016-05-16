@@ -22,9 +22,10 @@
             React.DOM.th null, 'Date'
             React.DOM.th null, 'Title'
             React.DOM.th null, 'Amount'
+            React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for record in @state.records
-            React.createElement Record, key: record.id, record: record
+            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord
   addRecord: (record) ->
     records = @state.records.slice()
     records.push record
@@ -41,3 +42,8 @@
     ), 0
   balance: ->
     @debits() + @credits()
+  deleteRecord: (record) ->
+    records = @state.records.slice()
+    index = records.indexOf record
+    records.splice index, 1
+    @replaceState records: records
